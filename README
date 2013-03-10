@@ -2,7 +2,7 @@ NAME
     Test::FailWarnings - Add test failures if warnings are caught
 
 VERSION
-    version 0.001
+    version 0.002
 
 SYNOPSIS
     Test file:
@@ -36,6 +36,44 @@ DESCRIPTION
     Just as with Test::NoWarnings, this does not catch warnings if other
     things localize $SIG{__WARN__}, as this is designed to catch *unhandled*
     warnings.
+
+USAGE
+  Overriding $SIG{__WARN__}
+    On "import", $SIG{__WARN__} is replaced with
+    "Test::FailWarnings::handler".
+
+        use Test::FailWarnings;  # global
+
+    If you don't want global replacement, require the module instead and
+    localize in whatever scope you want.
+
+        require Test::FailWarnings;
+
+        {
+            local $SIG{__WARN__} = \&Test::FailWarnings::handler;
+            # ... warnings will issue fail() here
+        }
+
+    When the handler reports on the source of the warning, it will look past
+    any calling packages starting with "Carp" or "warnings" to try to detect
+    the real origin of the warning.
+
+  Allowing warnings from dependencies
+    If you want to ignore failures from outside your own code, you can set
+    $Test::FailWarnings::ALLOW_DEPS to a true value. You can do that on the
+    "use" line with "-allow_deps".
+
+        use Test::FailWarnings -allow_deps => 1;
+
+    When true, warnings will only be thrown if they appear to originate from
+    a filename matching "qr/^(?:t|xt|lib|blib)/"
+
+  Allowing warnings from specific modules
+    If you want to white-list specific modules only, you can add their
+    package names to @Test::NoWarnings::ALLOW_FROM. You can do that on the
+    "use" line with "-allow_from".
+
+        use Test::FailWarnings -allow_from => [ qw/Annoying::Module/ ];
 
 SEE ALSO
     *   Test::NoWarnings -- catches warnings and reports in an "END" block.

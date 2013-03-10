@@ -11,12 +11,14 @@ use List::Util qw/max/;
 
 my @modules = qw(
   Capture::Tiny
+  Carp
   ExtUtils::MakeMaker
   File::Find
   File::Spec::Functions
   File::Temp
   List::Util
   Test::More
+  constant
   perl
   strict
   warnings

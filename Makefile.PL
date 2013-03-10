@@ -18,7 +18,8 @@ my %WriteMakefileArgs = (
     "File::Spec::Functions" => 0,
     "File::Temp" => 0,
     "List::Util" => 0,
-    "Test::More" => "0.96"
+    "Test::More" => "0.96",
+    "constant" => 0
   },
   "CONFIGURE_REQUIRES" => {
     "ExtUtils::MakeMaker" => "6.30"
@@ -28,11 +29,12 @@ my %WriteMakefileArgs = (
   "LICENSE" => "apache",
   "NAME" => "Test::FailWarnings",
   "PREREQ_PM" => {
+    "Carp" => 0,
     "Test::More" => "0.86",
     "strict" => 0,
     "warnings" => 0
   },
-  "VERSION" => "0.001",
+  "VERSION" => "0.002",
   "test" => {
     "TESTS" => "t/*.t"
   }
