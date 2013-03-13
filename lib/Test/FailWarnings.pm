@@ -4,7 +4,7 @@ use warnings;
 
 package Test::FailWarnings;
 # ABSTRACT: Add test failures if warnings are caught
-our $VERSION = '0.002'; # VERSION
+our $VERSION = '0.003'; # VERSION
 
 use Test::More 0.86;
 use Carp;
@@ -18,8 +18,10 @@ sub import {
       unless @args % 2 == 0;
     my %opts = @args;
     $ALLOW_DEPS = $opts{'-allow_deps'};
-    @ALLOW_FROM =
-      ref $opts{'-allow_from'} ? @{ $opts{'-allow_from'} || [] } : $opts{'-allow_from'};
+    if ( $opts{'-allow_from'} ) {
+        @ALLOW_FROM =
+          ref $opts{'-allow_from'} ? @{ $opts{'-allow_from'} } : $opts{'-allow_from'};
+    }
     $SIG{__WARN__} = \&handler;
 }
 
@@ -72,7 +74,7 @@ Test::FailWarnings - Add test failures if warnings are caught
 
 =head1 VERSION
 
-version 0.002
+version 0.003
 
 =head1 SYNOPSIS
 

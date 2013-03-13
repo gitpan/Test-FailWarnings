@@ -31,7 +31,7 @@ no_index:
 provides:
   Test::FailWarnings:
     file: lib/Test/FailWarnings.pm
-    version: 0.002
+    version: 0.003
 requires:
   Carp: 0
   Test::More: 0.86
@@ -42,4 +42,4 @@ resources:
   bugtracker: https://github.com/dagolden/test-failwarnings/issues
   homepage: https://metacpan.org/release/Test-FailWarnings
   repository: git://github.com/dagolden/test-failwarnings.git
-version: 0.002
+version: 0.003
