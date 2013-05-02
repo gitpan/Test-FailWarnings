@@ -4,7 +4,7 @@ use warnings;
 
 package Test::FailWarnings;
 # ABSTRACT: Add test failures if warnings are caught
-our $VERSION = '0.003'; # VERSION
+our $VERSION = '0.004'; # VERSION
 
 use Test::More 0.86;
 use Carp;
@@ -68,13 +68,15 @@ __END__
 
 =pod
 
+=encoding utf-8
+
 =head1 NAME
 
 Test::FailWarnings - Add test failures if warnings are caught
 
 =head1 VERSION
 
-version 0.003
+version 0.004
 
 =head1 SYNOPSIS
 
