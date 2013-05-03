@@ -4,7 +4,7 @@ use warnings;
 
 package Test::FailWarnings;
 # ABSTRACT: Add test failures if warnings are caught
-our $VERSION = '0.004'; # VERSION
+our $VERSION = '0.005'; # VERSION
 
 use Test::More 0.86;
 use Carp;
@@ -76,7 +76,7 @@ Test::FailWarnings - Add test failures if warnings are caught
 
 =head1 VERSION
 
-version 0.004
+version 0.005
 
 =head1 SYNOPSIS
 
@@ -163,6 +163,10 @@ with C<< -allow_from >>.
 =item *
 
 L<Test::NoWarnings> -- catches warnings and reports in an C<END> block.  Not (yet) friendly with C<done_testing>.
+
+=item *
+
+L<Test::Warnings> -- a replacement for Test::NoWarnings that works with done_testing
 
 =item *
 

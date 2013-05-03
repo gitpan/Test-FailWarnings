@@ -2,7 +2,7 @@ NAME
     Test::FailWarnings - Add test failures if warnings are caught
 
 VERSION
-    version 0.004
+    version 0.005
 
 SYNOPSIS
     Test file:
@@ -78,6 +78,9 @@ USAGE
 SEE ALSO
     *   Test::NoWarnings -- catches warnings and reports in an "END" block.
         Not (yet) friendly with "done_testing".
+
+    *   Test::Warnings -- a replacement for Test::NoWarnings that works with
+        done_testing
 
     *   Test::Warn -- test for warnings without triggering failures from
         this modules
