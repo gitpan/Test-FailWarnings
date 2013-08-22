@@ -2,7 +2,7 @@ NAME
     Test::FailWarnings - Add test failures if warnings are caught
 
 VERSION
-    version 0.005
+    version 0.006
 
 SYNOPSIS
     Test file:

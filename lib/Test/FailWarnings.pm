@@ -4,7 +4,7 @@ use warnings;
 
 package Test::FailWarnings;
 # ABSTRACT: Add test failures if warnings are caught
-our $VERSION = '0.005'; # VERSION
+our $VERSION = '0.006'; # VERSION
 
 use Test::More 0.86;
 use Carp;
@@ -45,7 +45,7 @@ sub handler {
         $msg = "'$msg'";
     }
     my $builder = Test::More->builder;
-    $builder->ok( 0, "Caught warning" )
+    $builder->ok( 0, "Test::FailWarnings should catch no warnings" )
       or $builder->diag("Warning was $msg");
 }
 
@@ -76,7 +76,7 @@ Test::FailWarnings - Add test failures if warnings are caught
 
 =head1 VERSION
 
-version 0.005
+version 0.006
 
 =head1 SYNOPSIS
 
