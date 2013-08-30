@@ -2,7 +2,7 @@ NAME
     Test::FailWarnings - Add test failures if warnings are caught
 
 VERSION
-    version 0.006
+    version 0.007
 
 SYNOPSIS
     Test file:
@@ -20,8 +20,8 @@ SYNOPSIS
     Output:
 
         ok 1 - first test
-        not ok 2 - Caught warning
-        #   Failed test 'Caught warning'
+        not ok 2 - Test::FailWarnings should catch no warnings
+        #   Failed test 'Test::FailWarnings should catch no warnings'
         #   at t/bin/main-warn.pl line 7.
         # Warning was 'Argument "lkadjaks" isn't numeric in addition (+) at t/bin/main-warn.pl line 7.'
         ok 3 - add non-numeric
@@ -29,7 +29,7 @@ SYNOPSIS
         # Looks like you failed 1 test of 3.
 
 DESCRIPTION
-    This module hooks $SIG{__WARN__} and converts warnings to Test::More's
+    This module hooks $SIG{__WARN__} and converts warnings to Test::More
     "fail()" calls. It is designed to be used with "done_testing", when you
     don't need to know the test count in advance.
 

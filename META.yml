@@ -5,17 +5,19 @@ author:
 build_requires:
   Capture::Tiny: 0.12
   ExtUtils::MakeMaker: 0
+  File::Spec: 0
   File::Spec::Functions: 0
   File::Temp: 0
+  IO::Handle: 0
+  IPC::Open3: 0
   List::Util: 0
   Test::More: 0.96
-  blib: 0
   constant: 0
   lib: 0
 configure_requires:
   ExtUtils::MakeMaker: 6.30
 dynamic_config: 0
-generated_by: 'Dist::Zilla version 4.300035, CPAN::Meta::Converter version 2.132140'
+generated_by: 'Dist::Zilla version 4.300037, CPAN::Meta::Converter version 2.132140'
 license: apache
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -32,9 +34,11 @@ no_index:
 provides:
   Test::FailWarnings:
     file: lib/Test/FailWarnings.pm
-    version: 0.006
+    version: 0.007
 requires:
   Carp: 0
+  Cwd: 0
+  File::Spec: 0
   Test::More: 0.86
   perl: 5.008001
   strict: 0
@@ -43,5 +47,5 @@ resources:
   bugtracker: https://github.com/dagolden/test-failwarnings/issues
   homepage: https://metacpan.org/release/Test-FailWarnings
   repository: git://github.com/dagolden/test-failwarnings.git
-version: 0.006
+version: 0.007
 x_authority: cpan:DAGOLDEN

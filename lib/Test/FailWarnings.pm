@@ -4,13 +4,17 @@ use warnings;
 
 package Test::FailWarnings;
 # ABSTRACT: Add test failures if warnings are caught
-our $VERSION = '0.006'; # VERSION
+our $VERSION = '0.007'; # VERSION
 
 use Test::More 0.86;
+use Cwd qw/getcwd/;
+use File::Spec;
 use Carp;
 
 our $ALLOW_DEPS = 0;
 our @ALLOW_FROM = ();
+
+my $ORIG_DIR = getcwd(); # cache in case handler runs after a chdir
 
 sub import {
     my ( $class, @args ) = @_;
@@ -33,7 +37,11 @@ sub handler {
 
     # shortcut if ignoring dependencies and warning did not
     # come from something local
-    return if $ALLOW_DEPS && $filename !~ /^(?:t|xt|lib|blib)/;
+    if ( $ALLOW_DEPS ) {
+        $filename = File::Spec->abs2rel( $filename, $ORIG_DIR )
+            if File::Spec->file_name_is_absolute( $filename );
+        return if $filename !~ /^(?:t|xt|lib|blib)/;
+    }
 
     return if grep { $package eq $_ } @ALLOW_FROM;
 
@@ -76,7 +84,7 @@ Test::FailWarnings - Add test failures if warnings are caught
 
 =head1 VERSION
 
-version 0.006
+version 0.007
 
 =head1 SYNOPSIS
 
@@ -95,8 +103,8 @@ Test file:
 Output:
 
     ok 1 - first test
-    not ok 2 - Caught warning
-    #   Failed test 'Caught warning'
+    not ok 2 - Test::FailWarnings should catch no warnings
+    #   Failed test 'Test::FailWarnings should catch no warnings'
     #   at t/bin/main-warn.pl line 7.
     # Warning was 'Argument "lkadjaks" isn't numeric in addition (+) at t/bin/main-warn.pl line 7.'
     ok 3 - add non-numeric
@@ -105,7 +113,7 @@ Output:
 
 =head1 DESCRIPTION
 
-This module hooks C<$SIG{__WARN__}> and converts warnings to L<Test::More>'s
+This module hooks C<$SIG{__WARN__}> and converts warnings to L<Test::More>
 C<fail()> calls.  It is designed to be used with C<done_testing>, when you
 don't need to know the test count in advance.
 

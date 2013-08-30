@@ -1,19 +1,17 @@
 use strict;
 use warnings;
 
-# This test was generated via Dist::Zilla::Plugin::Test::Compile 2.018
+# this test was generated with Dist::Zilla::Plugin::Test::Compile 2.022
 
 use Test::More 0.88;
 
 
 
-use Capture::Tiny qw{ capture };
-
-my @module_files = qw(
-Test/FailWarnings.pm
+my @module_files = (
+    'Test/FailWarnings.pm'
 );
 
-my @scripts = qw(
+my @scripts = (
 
 );
 
@@ -22,15 +20,26 @@ use File::Temp;
 local $ENV{HOME} = File::Temp::tempdir( CLEANUP => 1 );
 
 
+use IPC::Open3;
+use IO::Handle;
+use File::Spec;
+
 my @warnings;
 for my $lib (@module_files)
 {
-    my ($stdout, $stderr, $exit) = capture {
-        system($^X, '-Mblib', '-e', qq{require q[$lib]});
-    };
-    is($?, 0, "$lib loaded ok");
-    warn $stderr if $stderr;
-    push @warnings, $stderr if $stderr;
+    open my $stdout, '>', File::Spec->devnull or die $!;
+    open my $stdin, '<', File::Spec->devnull or die $!;
+    my $stderr = IO::Handle->new;
+
+    my $pid = open3($stdin, $stdout, $stderr, qq{$^X -Mblib -e"require q[$lib]"});
+    waitpid($pid, 0);
+    is($? >> 8, 0, "$lib loaded ok");
+
+    if (my @_warnings = <$stderr>)
+    {
+        warn @_warnings;
+        push @warnings, @_warnings;
+    }
 }
 
 
