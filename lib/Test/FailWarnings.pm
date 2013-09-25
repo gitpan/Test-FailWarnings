@@ -4,7 +4,7 @@ use warnings;
 
 package Test::FailWarnings;
 # ABSTRACT: Add test failures if warnings are caught
-our $VERSION = '0.007'; # VERSION
+our $VERSION = '0.008'; # VERSION
 
 use Test::More 0.86;
 use Cwd qw/getcwd/;
@@ -37,9 +37,9 @@ sub handler {
 
     # shortcut if ignoring dependencies and warning did not
     # come from something local
-    if ( $ALLOW_DEPS ) {
+    if ($ALLOW_DEPS) {
         $filename = File::Spec->abs2rel( $filename, $ORIG_DIR )
-            if File::Spec->file_name_is_absolute( $filename );
+          if File::Spec->file_name_is_absolute($filename);
         return if $filename !~ /^(?:t|xt|lib|blib)/;
     }
 
@@ -84,7 +84,7 @@ Test::FailWarnings - Add test failures if warnings are caught
 
 =head1 VERSION
 
-version 0.007
+version 0.008
 
 =head1 SYNOPSIS
 
@@ -189,7 +189,7 @@ L<Test::Warn> -- test for warnings without triggering failures from this modules
 =head2 Bugs / Feature Requests
 
 Please report any bugs or feature requests through the issue tracker
-at L<https://github.com/dagolden/test-failwarnings/issues>.
+at L<https://github.com/dagolden/Test-FailWarnings/issues>.
 You will be notified automatically of any progress on your issue.
 
 =head2 Source Code
@@ -197,9 +197,9 @@ You will be notified automatically of any progress on your issue.
 This is open source software.  The code repository is available for
 public review and contribution under the terms of the license.
 
-L<https://github.com/dagolden/test-failwarnings>
+L<https://github.com/dagolden/Test-FailWarnings>
 
-  git clone git://github.com/dagolden/test-failwarnings.git
+  git clone https://github.com/dagolden/Test-FailWarnings.git
 
 =head1 AUTHOR
 

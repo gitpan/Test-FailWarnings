@@ -2,7 +2,7 @@ NAME
     Test::FailWarnings - Add test failures if warnings are caught
 
 VERSION
-    version 0.007
+    version 0.008
 
 SYNOPSIS
     Test file:
@@ -88,16 +88,16 @@ SEE ALSO
 SUPPORT
   Bugs / Feature Requests
     Please report any bugs or feature requests through the issue tracker at
-    <https://github.com/dagolden/test-failwarnings/issues>. You will be
+    <https://github.com/dagolden/Test-FailWarnings/issues>. You will be
     notified automatically of any progress on your issue.
 
   Source Code
     This is open source software. The code repository is available for
     public review and contribution under the terms of the license.
 
-    <https://github.com/dagolden/test-failwarnings>
+    <https://github.com/dagolden/Test-FailWarnings>
 
-      git clone git://github.com/dagolden/test-failwarnings.git
+      git clone https://github.com/dagolden/Test-FailWarnings.git
 
 AUTHOR
     David Golden <dagolden@cpan.org>

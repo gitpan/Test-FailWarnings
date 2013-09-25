@@ -15,9 +15,9 @@ build_requires:
   constant: 0
   lib: 0
 configure_requires:
-  ExtUtils::MakeMaker: 6.30
+  ExtUtils::MakeMaker: 6.17
 dynamic_config: 0
-generated_by: 'Dist::Zilla version 4.300037, CPAN::Meta::Converter version 2.132140'
+generated_by: 'Dist::Zilla version 4.300039, CPAN::Meta::Converter version 2.132620'
 license: apache
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -34,7 +34,7 @@ no_index:
 provides:
   Test::FailWarnings:
     file: lib/Test/FailWarnings.pm
-    version: 0.007
+    version: 0.008
 requires:
   Carp: 0
   Cwd: 0
@@ -44,8 +44,8 @@ requires:
   strict: 0
   warnings: 0
 resources:
-  bugtracker: https://github.com/dagolden/test-failwarnings/issues
-  homepage: https://metacpan.org/release/Test-FailWarnings
-  repository: git://github.com/dagolden/test-failwarnings.git
-version: 0.007
+  bugtracker: https://github.com/dagolden/Test-FailWarnings/issues
+  homepage: https://github.com/dagolden/Test-FailWarnings
+  repository: https://github.com/dagolden/Test-FailWarnings.git
+version: 0.008
 x_authority: cpan:DAGOLDEN

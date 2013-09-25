@@ -4,7 +4,7 @@
       "David Golden <dagolden@cpan.org>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 4.300037, CPAN::Meta::Converter version 2.132140",
+   "generated_by" : "Dist::Zilla version 4.300039, CPAN::Meta::Converter version 2.132620",
    "license" : [
       "apache_2_0"
    ],
@@ -27,7 +27,7 @@
    "prereqs" : {
       "configure" : {
          "requires" : {
-            "ExtUtils::MakeMaker" : "6.30"
+            "ExtUtils::MakeMaker" : "6.17"
          }
       },
       "develop" : {
@@ -68,22 +68,22 @@
    "provides" : {
       "Test::FailWarnings" : {
          "file" : "lib/Test/FailWarnings.pm",
-         "version" : "0.007"
+         "version" : "0.008"
       }
    },
    "release_status" : "stable",
    "resources" : {
       "bugtracker" : {
-         "web" : "https://github.com/dagolden/test-failwarnings/issues"
+         "web" : "https://github.com/dagolden/Test-FailWarnings/issues"
       },
-      "homepage" : "https://metacpan.org/release/Test-FailWarnings",
+      "homepage" : "https://github.com/dagolden/Test-FailWarnings",
       "repository" : {
          "type" : "git",
-         "url" : "git://github.com/dagolden/test-failwarnings.git",
-         "web" : "https://github.com/dagolden/test-failwarnings"
+         "url" : "https://github.com/dagolden/Test-FailWarnings.git",
+         "web" : "https://github.com/dagolden/Test-FailWarnings"
       }
    },
-   "version" : "0.007",
+   "version" : "0.008",
    "x_authority" : "cpan:DAGOLDEN"
 }
 
